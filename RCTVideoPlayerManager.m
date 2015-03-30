@@ -8,20 +8,10 @@
 
 - (UIView *)view
 {
-    return [[RCTVideoPlayer alloc] initWithEventDispatcher:_bridge.eventDispatcher];
+    return [[RCTVideoPlayer alloc] init];
 }
 
-RCT_CUSTOM_VIEW_PROPERTY(src, NSString, RCTVideoPlayer)
-{
-    if (json) {
-        [view initFromSource:[RCTConvert NSString:json]];
-    }
-}
-
-RCT_CUSTOM_VIEW_PROPERTY(resizeMode, NSInteger, RCTVideoPlayer)
-{
-    [view setResizeMode:[RCTConvert NSInteger:json]];
-}
-
+RCT_EXPORT_VIEW_PROPERTY(src, NSString);
+RCT_EXPORT_VIEW_PROPERTY(resizeMode, NSInteger);
 
 @end
